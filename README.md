@@ -114,92 +114,122 @@ Endpoint:
 
     GET /api/apartamentos/disponivel
 
+Body:
+
+``` json
+[
+  {
+    "reservado": true,
+    "id": 3,
+    "ocupado": false,
+    "metragem": 80,
+    "quartos": 3,
+    "banheiros": 2,
+    "vagas": 2,
+    "detalhesApartamento": "Varanda;Suite Master;Armarios Planejados",
+    "detalhesCondominio": "Piscina;Sauna;Academia",
+    "andar": 3,
+    "bloco": 1,
+    "valorVenda": 420000,
+    "valorCondominio": 500,
+    "valorIptu": 150,
+    "cep": "33333333",
+    "logradouro": "Rua das Flores",
+    "bairro": "Centro",
+    "numero": "999",
+    "estado": "Minas Gerais",
+    "cidade": "Belo Horizonte",
+    "complemento": null
+  }
+]
+```
+
 ------------------------------------------------------------------------
 
 # Estrutura das tabelas no banco de dados
 
 ## Tabela: Vendedores
-  Campo            Tipo      Descrição
-  ---------------- --------- --------------------------------
-  Id               int       Identificador do vendedor
-  DataCriacao      datetime2 Data de criação do registro
-  DataAlteracao    datetime2 Data de alteração do registro
-  Nome             varchar   Nome do vendedor
-  Cpf              varchar   CPF do vendedor
-  DataNascimento   date      Data de nascimento
-  Email            varchar   Email
-  Celular          varchar   Telefone
-  Ativo            bit       Indica se o vendedor está ativo
-  Senha            varchar   Hash criado pelo backend para controle de login
-  Cep              varchar   Cep do vendedor
-  Logradouro       varchar   Logradouro do vendedor
-  Bairro           varchar   Bairro do vendedor
-  Numero           varchar   Numero do endereço do vendedor
-  Complemento      varchar   Complemento do endereço, caso haja (nullable)
-  Setor            varchar   Indica qual setor de vendas o vendedor pertence
-  NumeroRegistro   varchar   Numero de registro do funcionário dentro da empresa
+|  Campo            | Tipo      | Descrição |
+|  :--- | :---: | ---: |
+|  Id               | int       | Identificador do vendedor |
+|  DataCriacao      | datetime2 | Data de criação do registro |
+|  DataAlteracao    | datetime2 | Data de alteração do registro |
+|  Nome             | varchar   | Nome do vendedor |
+|  Cpf              | varchar   | CPF do vendedor |
+|  DataNascimento   | date      | Data de nascimento |
+|  Email            | varchar   | Email |
+|  Celular          | varchar   | Telefone |
+|  Ativo            | bit       | Indica se o vendedor está ativo |
+|  Senha            | varchar   | Hash criado pelo backend para controle de login |
+|  Cep              | varchar   | Cep do vendedor |
+|  Logradouro       | varchar   | Logradouro do vendedor |
+|  Bairro           | varchar   | Bairro do vendedor |
+|  Numero           | varchar   | Numero do endereço do vendedor |
+|  Complemento      | varchar   | Complemento do endereço, caso haja (nullable) |
+|  Setor            | varchar   | Indica qual setor de vendas o vendedor pertence |
+|  NumeroRegistro   | varchar   | Numero de registro do funcionário dentro da empresa |
 
 ------------------------------------------------------------------------
 
 ## Tabela: Clientes
 
-  Campo            Tipo      Descrição
-  ---------------- --------- --------------------------------
-  Id               int       Identificador do cliente
-  Nome             varchar   Nome do cliente
-  Cpf              varchar   CPF do cliente
-  DataNascimento   date      Data de nascimento
-  Email            varchar   Email
-  Celular          varchar   Telefone
-  EstadoCivil      varchar   Estado civil
-  Ativo            bit       Indica se o cliente está ativo
+|  Campo            | Tipo      | Descrição |
+|  :--- | :---: | ---: |
+|  Id               | int       | Identificador do cliente |
+|  Nome             | varchar   | Nome do cliente |
+|  Cpf              | varchar   | CPF do cliente |
+|  DataNascimento   | date      | Data de nascimento |
+|  Email            | varchar   | Email |
+|  Celular          | varchar   | Telefone |
+|  EstadoCivil      | varchar   | Estado civil |
+|  Ativo            | bit       | Indica se o cliente está ativo |
 
 ------------------------------------------------------------------------
 
 ## Tabela: Apartamentos
 
-  Campo             Tipo
-  ----------------- ---------
-  Id                int
-  Metragem          int
-  Quartos           int
-  Banheiros         int
-  Vagas             int
-  Andar             int
-  Bloco             int
-  ValorVenda        decimal
-  ValorCondominio   decimal
-  ValorIptu         decimal
-  Cep               varchar
-  Logradouro        varchar
-  Bairro            varchar
-  Cidade            varchar
-  Estado            varchar
-  Numero            varchar
-  Complemento       varchar
-  Ocupado           bit
+|  Campo             | Tipo |
+|  :--- | :---: |
+|  Id                | int |
+|  Metragem          | int |
+|  Quartos           | int |
+|  Banheiros         | int |
+|  Vagas             | int |
+|  Andar             | int |
+|  Bloco             | int |
+|  ValorVenda        | decimal |
+|  ValorCondominio   | decimal |
+|  ValorIptu         | decimal |
+|  Cep               | varchar |
+|  Logradouro        | varchar |
+|  Bairro            | varchar |
+|  Cidade            | varchar |
+|  Estado            | varchar |
+|  Numero            | varchar |
+|  Complemento       | varchar |
+|  Ocupado           | bit |
 
 ------------------------------------------------------------------------
 
 ## Tabela: Reservas
 
-  Campo           Tipo
-  --------------- ------
-  Id              int
-  IdCliente       int
-  IdApartamento   int
-  Ativo           bit
+|  Campo           | Tipo |
+|  :--- | :---: |
+|  Id              | int |
+|  IdCliente       | int |
+|  IdApartamento   | int |
+|  Ativo           | bit |
 
 ------------------------------------------------------------------------
 
 ## Tabela: Vendas
 
-  Campo           Tipo
-  --------------- ------
-  Id              int
-  IdCliente       int
-  IdApartamento   int
-  IdVendedor      int
+  Campo           | Tipo |
+|  :--- | :---: |
+|  Id              | int |
+|  IdCliente       | int |
+|  IdApartamento   | int |
+|  IdVendedor      | int |
 
 ------------------------------------------------------------------------
 
@@ -222,11 +252,11 @@ Após autenticar, a API retorna um token:
 
 Para fins de teste, existem 3 vendedores pré cadastrados no banco de dados:
 
-  Cpf             Senha
-  --------------- ------
-  11111111111     Teste123@
-  22222222222     SenhaForte478!
-  33333333333     PasswordTest994#
+|  Cpf             | Senha |
+|  :--- | ---: |
+|  11111111111     | Teste123@ |
+|  22222222222     | SenhaForte478! |
+|  33333333333     | PasswordTest994# |
 
 ------------------------------------------------------------------------
 
@@ -247,7 +277,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI...
 
 # Considerações e decisões técnicas
 
-Aqui deixo as considerações e decisões que foram tomadas durante o desenvolviment:
+Aqui deixo as considerações e decisões que foram tomadas durante o desenvolvimento:
 
 ## Backend
 
@@ -261,14 +291,13 @@ Aqui deixo as considerações e decisões que foram tomadas durante o desenvolvi
     -   WebAPI
 - Para validações de input foi utilizada a lib FluentValidation, que facilita a criação das regras e a implementação de forma automática para os handlers.
 - Autenticação utilizando JWT token, definindo com que somente requisições autenticadas podem acessar os controllers da aplicação.
+- A autenticação é feita também utilizando PasswordHasher da microsoft para melhor segurança.
 - Para fazer o controle de login, decidi criar uma tabela Vendedores com informações de cada um, além dos dados necessários para efetuar o login. Essa tabela
     não era prevista no cenário inicial, porém foi fundamental para o projeto, pois em um cenário real os funcionários da empresa teriam algum tipo de registro com suas credenciais.
 - Para grande maioria das tabelas, tomei a liberdade de adicionar campos que existiriam em um sistema de imobiliária real, para que mesmo um projeto MVP possa ter uma melhor apresentação.
 - Criada uma classe de controle de excessões (middleware) e classes de excessões com tratamento de status code correto para cada, de forma que os retornos sejam previsíveis, 
     e nenhuma stack trace seja exibida ao cliente.
 - Testes unitários criados utilizando xUnit, com auxílio de libs como Faker e Fixture, cobrindo as partes principais do projeto (Auth, Handlers, Models e Validators).
-- A utilização da A.I foi maior mesmo na criação das classes e métodos que eu já havia definido, após a implementação da arquitetura que também foi feita por mim. Além disso, 
-    utilizei bastante na criação dos testes unitários, passando os métodos e os casos necessários à serem testados.
 
 ### Melhorias futuras
 
@@ -276,7 +305,7 @@ Algumas melhorias que gostaria de ter implementado porém pelo escopo e tempo, a
 
 - Implementar melhor DDD, com ValueObjects para CPF, Email, Celular e outros tipos de dados necessários.
 - Implementar validações mais acertivas e mais completas, e até mesmo uma busca de CPF via api externa (exemplo SERPRO), afim de validar a veracidade do CPF informado.
-- Implementar loggers através do código, utilizando a própria lib da microsoft, pois acho muito útil na rastreabilidade de erros e até mesmo pra validar o andamento do sistema.
+- Implementar logs cercando toda a camada de application, utilizando a própria lib da microsoft Loggers, visando uma melhor rastreabilidade de eventos e erros do sistema.
 - Implementar paginação e rotas com filtragem para maior flexibilidade de uso das mesmas.
 - Implementar refresh token para renovação da autenticação.
 
@@ -315,6 +344,9 @@ demonstrar:
 -   Integração frontend/backend
 -   Fluxos completos de negócio
 -   Containerização da aplicação
+
+O foco do projeto foi muito mais voltado ao backend e infraestrutura do que frontend, por isso há muito espaço de melhoria dentro do projeto react, 
+  porém ele serve muito bem para ilustrar o cenário de utilização do negócio e exemplifica muito bem as regras de cada módulo do sistema.
 
 ------------------------------------------------------------------------
 
