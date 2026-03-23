@@ -221,6 +221,7 @@ Body:
 |  Ativo           | bit |
 
 **IdCliente é chave estrangeira referênciando Clientes (Id)**
+
 **IdApartamento é chave estrangeira referênciando Apartamentos (Id)**
 
 ------------------------------------------------------------------------
@@ -235,7 +236,9 @@ Body:
 |  IdVendedor      | int |
 
 **IdCliente é chave estrangeira referênciando Clientes (Id)**
+
 **IdApartamento é chave estrangeira referênciando Apartamentos (Id)**
+
 **IdVendedor é chave estrangeira referênciando Vendedores (Id)**
 
 ------------------------------------------------------------------------
