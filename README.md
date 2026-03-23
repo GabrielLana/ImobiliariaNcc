@@ -220,6 +220,9 @@ Body:
 |  IdApartamento   | int |
 |  Ativo           | bit |
 
+**IdCliente é chave estrangeira referênciando Clientes (Id)**
+**IdApartamento é chave estrangeira referênciando Apartamentos (Id)**
+
 ------------------------------------------------------------------------
 
 ## Tabela: Vendas
@@ -230,6 +233,10 @@ Body:
 |  IdCliente       | int |
 |  IdApartamento   | int |
 |  IdVendedor      | int |
+
+**IdCliente é chave estrangeira referênciando Clientes (Id)**
+**IdApartamento é chave estrangeira referênciando Apartamentos (Id)**
+**IdVendedor é chave estrangeira referênciando Vendedores (Id)**
 
 ------------------------------------------------------------------------
 
