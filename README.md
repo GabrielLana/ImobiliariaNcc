@@ -33,7 +33,7 @@ docker compose version
 
 ``` bash
 git clone https://github.com/GabrielLana/ImobiliariaNcc.git
-cd imobiliaria-ncc
+cd ImobiliariaNcc
 ```
 
 2 Arquivo .env
